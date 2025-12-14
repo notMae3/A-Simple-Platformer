@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3 uid="uid://bl64v2a4auj10"]
+
+[ext_resource type="Script" path="res://Hammer.gd" id="1_y8bdc"]
+[ext_resource type="Texture2D" uid="uid://dd8blh0xoipko" path="res://assets/hammer_head.png" id="2_bpibe"]
+[ext_resource type="Texture2D" uid="uid://cpc12c2sx48p5" path="res://assets/hammer_base.png" id="3_y1rfg"]
+
+[node name="hammer" type="Node2D"]
+z_index = 1
+scale = Vector2(0.74, 0.74)
+script = ExtResource("1_y8bdc")
+segments = {
+"1": {
+"clockwise_rotation": true,
+"rotation_speed": 1.45,
+"shaft_length": 100,
+"starting_rotation": 0.0
+}
+}
+
+[node name="ShaftSegments" type="Node2D" parent="."]
+
+[node name="base" type="Sprite2D" parent="."]
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("3_y1rfg")
+
+[node name="head" type="Sprite2D" parent="."]
+z_index = -1
+texture = ExtResource("2_bpibe")
+
+[node name="HeadHitbox" type="Area2D" parent="head"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="head/HeadHitbox"]
+position = Vector2(0, -4)
+polygon = PackedVector2Array(-120, -41, -125, -32, -125, 40, -120, 49, -111, 54, 111, 54, 120, 49, 125, 40, 125, -32, 120, -41, 111, -46, -111, -46)

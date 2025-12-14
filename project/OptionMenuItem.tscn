@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://ckwremtw0hoa0"]
+
+[ext_resource type="Script" path="res://OptionMenuItem.gd" id="1_3qisk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l0tis"]
+content_margin_left = 5.0
+bg_color = Color(0.827451, 0.513726, 0.290196, 1)
+
+[node name="OptionMenuItem" type="ColorRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -20.0
+offset_right = -1052.0
+offset_bottom = -628.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.560784, 0.560784, 0.560784, 1)
+script = ExtResource("1_3qisk")
+
+[node name="CheckButton" type="CheckButton" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/hover = SubResource("StyleBoxFlat_l0tis")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_l0tis")
+text = "Filler text"
+
+[connection signal="toggled" from="CheckButton" to="." method="_on_check_button_toggled"]

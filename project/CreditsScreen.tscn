@@ -1,0 +1,165 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6fkk8g4e0iy3"]
+
+[ext_resource type="Script" path="res://CreditsScreen.gd" id="1_x6vjr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vae4k"]
+line_spacing = 2.0
+font_size = 25
+font_color = Color(0, 0, 0, 1)
+
+[node name="CreditsScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.5, 2.5)
+script = ExtResource("1_x6vjr")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.690196, 0.690196, 0.690196, 1)
+
+[node name="PlayingLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -280.0
+offset_top = -199.0
+offset_right = 280.0
+offset_bottom = -115.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 61
+text = "Thanks for playing!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FeedbackLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -230.0
+offset_top = -109.0
+offset_right = 230.0
+offset_bottom = -74.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "Feedback would be much appreciated"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MainMenuButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -103.0
+offset_top = -133.0
+offset_right = 103.0
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 0
+focus_mode = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 36
+text = "Return to
+main menu"
+flat = true
+
+[node name="DeathCountLabel" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -142.5
+offset_top = -19.0
+offset_right = -57.5
+offset_bottom = 53.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "0
+Deaths"
+label_settings = SubResource("LabelSettings_vae4k")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TimeElapsedLabel" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 57.5
+offset_top = -19.0
+offset_right = 142.5
+offset_bottom = 53.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "00:00
+Time"
+label_settings = SubResource("LabelSettings_vae4k")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CheckpointsDisabledLabel" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -152.0
+offset_top = 56.0
+offset_right = 152.0
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Checkpoints disabled"
+label_settings = SubResource("LabelSettings_vae4k")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MotivationalLabel" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -152.0
+offset_top = -19.0
+offset_right = 152.0
+offset_bottom = 53.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Well done, ur awesome :)"
+label_settings = SubResource("LabelSettings_vae4k")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="MainMenuButton" to="." method="_on_main_menu_button_pressed"]

@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://soxvxufuy3ty"]
+
+[ext_resource type="Texture2D" uid="uid://17j1gvshvbnp" path="res://assets/launch_pad.png" id="1_g7lqw"]
+[ext_resource type="Script" path="res://BouncePad.gd" id="2_br27q"]
+
+[node name="BouncePad" type="Sprite2D"]
+position = Vector2(0, -64)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_g7lqw")
+script = ExtResource("2_br27q")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+position = Vector2(0, 226)
+rotation = 1.5708
+polygon = PackedVector2Array(30, 172, 20, 194, 10, 204, 4.00001, 204, -1.99999, 198, -9.99999, 186, -20, 158, -30, 106, -34, 60, -36, 1.57361e-06, -34, -60, -30, -106, -20, -158, -10, -186, -2, -198, 4, -204, 10, -204, 20, -194, 30, -174)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

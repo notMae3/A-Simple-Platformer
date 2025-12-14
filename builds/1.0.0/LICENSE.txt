@@ -1,0 +1,9 @@
+LICENSE FOR 'A simple platformer'
+https://notmae3.itch.io/a-simple-platformer
+
+- This software is provided as is and thus without any warranties or guarantees.
+- You are not allowed to sell or distribute this software in any medium.
+- You are not allowed to modify this software in any way.
+
+This software is owned and developed by itch.io user notmae3
+https://notmae3.itch.io

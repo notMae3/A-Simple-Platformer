@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://dvr3o6016agy1"]
+
+[ext_resource type="Script" path="res://Player.gd" id="1_aefnv"]
+[ext_resource type="Texture2D" uid="uid://ynwulwe2ot3b" path="res://assets/colors/red.png" id="1_kewb5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r1t1h"]
+size = Vector2(16, 3)
+
+[node name="player" type="CharacterBody2D"]
+scale = Vector2(5, 5)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_aefnv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_kewb5")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-8, 8, -8, -8, 8, -8, 8, 8)
+
+[node name="AreaHitbox" type="Area2D" parent="."]
+editor_description = "for spikes and such"
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AreaHitbox"]
+polygon = PackedVector2Array(-8, 8, -8, -8, 8, -8, 8, 8)
+
+[node name="custom_is_on_floor" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="custom_is_on_floor"]
+position = Vector2(0, 9.5)
+shape = SubResource("RectangleShape2D_r1t1h")
+
+[connection signal="area_entered" from="AreaHitbox" to="." method="_on_area_hitbox_area_entered"]
+[connection signal="body_entered" from="custom_is_on_floor" to="." method="_on_custom_is_on_floor_body_entered"]
+[connection signal="body_exited" from="custom_is_on_floor" to="." method="_on_custom_is_on_floor_body_exited"]

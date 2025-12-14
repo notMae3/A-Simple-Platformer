@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://bwgn2uhkub73k"]
+
+[ext_resource type="Script" path="res://Teleporter.gd" id="1_hqs4w"]
+[ext_resource type="Texture2D" uid="uid://ba6wq3kk8aeta" path="res://assets/tp_1.png" id="1_v0qtv"]
+[ext_resource type="Texture2D" uid="uid://boq4a4ktojkvd" path="res://assets/tp_2.png" id="2_s7xcq"]
+
+[node name="Teleporter" type="Node2D"]
+position = Vector2(0, -64)
+scale = Vector2(0.25, 0.25)
+script = ExtResource("1_hqs4w")
+
+[node name="OrangeSprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_v0qtv")
+
+[node name="BlueSprite" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_s7xcq")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+position = Vector2(0, 226)
+rotation = 1.5708
+polygon = PackedVector2Array(30, 172, 20, 194, 10, 204, 4.00001, 204, -1.99999, 198, -9.99999, 186, -20, 158, -30, 106, -34, 60, -36, 1.57361e-06, -34, -60, -30, -106, -20, -158, -10, -186, -2, -198, 4, -204, 10, -204, 20, -194, 30, -174)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

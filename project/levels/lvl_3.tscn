@@ -1,0 +1,141 @@
+[gd_scene load_steps=7 format=3 uid="uid://d4iakkgh6f8ss"]
+
+[ext_resource type="TileSet" uid="uid://bywce54qywn13" path="res://levels/tileset.tres" id="1_bgmti"]
+[ext_resource type="Script" path="res://levels/LevelHandler.gd" id="2_0ui2u"]
+[ext_resource type="PackedScene" uid="uid://c4jvyb00h57n3" path="res://Spike.tscn" id="3_pnild"]
+[ext_resource type="PackedScene" uid="uid://hrx8j0mt4mdy" path="res://Laser.tscn" id="4_cfrjm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5i5mb"]
+size = Vector2(108, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uhdk1"]
+size = Vector2(256, 10)
+
+[node name="lvl3" type="TileMap"]
+tile_set = ExtResource("1_bgmti")
+format = 2
+layer_0/tile_data = PackedInt32Array(720896, 0, 0, 720897, 0, 0, 720898, 0, 0, 720899, 1, 0, 720900, 0, 0, 720904, 0, 0, 720906, 1, 0, 720907, 0, 0, 720908, 0, 0, 720909, 0, 0, 720910, 0, 0, 720911, 0, 0, 720912, 0, 0, 720913, 0, 0, 720914, 0, 0, 720915, 0, 0, 720916, 0, 0, 720917, 2, 0, 720918, 2, 0, 589835, 0, 0, 589824, 0, 0, 327685, 0, 0, 720901, 0, 0, 720903, 1, 0, 720902, 0, 0, 327684, 0, 0, 458761, 0, 0, 393225, 0, 0, 327689, 0, 0, 655371, 0, 0, 720905, 0, 0, 655373, 0, 0, 655372, 0, 0, 655374, 0, 0, 327696, 0, 0, 393232, 0, 0, 262153, 0, 0, 262154, 0, 0, 262155, 0, 0, 262156, 0, 0, 262157, 0, 0, 262158, 0, 0, 262159, 0, 0, 262160, 0, 0, 589836, 0, 0, 589837, 0, 0, 589838, 0, 0, 524303, 0, 0, 524305, 0, 0, 524306, 0, 0, 524307, 0, 0, 524308, 0, 0, 524309, 0, 0, 524310, 0, 0, 458769, 0, 0, 393233, 0, 0)
+script = ExtResource("2_0ui2u")
+
+[node name="spikes" type="Node2D" parent="."]
+
+[node name="1" parent="spikes" instance=ExtResource("3_pnild")]
+position = Vector2(576, 1344)
+
+[node name="2" parent="spikes" instance=ExtResource("3_pnild")]
+position = Vector2(832, 1344)
+
+[node name="3" parent="spikes" instance=ExtResource("3_pnild")]
+position = Vector2(1600, 1088)
+
+[node name="4" parent="spikes" instance=ExtResource("3_pnild")]
+position = Vector2(1600, 704)
+rotation = 3.14159
+
+[node name="5" parent="spikes" instance=ExtResource("3_pnild")]
+position = Vector2(1984, 832)
+rotation = -1.5708
+
+[node name="6" parent="spikes" instance=ExtResource("3_pnild")]
+position = Vector2(1856, 1088)
+
+[node name="lasers" type="Node2D" parent="."]
+
+[node name="1" parent="lasers" instance=ExtResource("4_cfrjm")]
+position = Vector2(1856, 672)
+beam_length = 394
+oscilation_delta = 0.5
+oscilation_timer_start_delay = 0.25
+inverse_cycle = true
+
+[node name="2" parent="lasers" instance=ExtResource("4_cfrjm")]
+position = Vector2(1376, 1216)
+rotation = 1.5708
+beam_length = 1250
+oscilation_delta = 0.5
+oscilation_timer_start_delay = 0.25
+inverse_cycle = true
+
+[node name="3" parent="lasers" instance=ExtResource("4_cfrjm")]
+position = Vector2(576, 800)
+beam_length = 500
+oscilation_delta = 0.5
+oscilation_timer_start_delay = 0.0
+
+[node name="4" parent="lasers" instance=ExtResource("4_cfrjm")]
+position = Vector2(704, 800)
+beam_length = 650
+oscilation_delta = 0.5
+oscilation_timer_start_delay = 0.2
+
+[node name="5" parent="lasers" instance=ExtResource("4_cfrjm")]
+position = Vector2(1344, 672)
+beam_length = 778
+oscilation_delta = 1.0
+
+[node name="6" parent="lasers" instance=ExtResource("4_cfrjm")]
+position = Vector2(1952, 1216)
+rotation = -1.5708
+beam_length = 940
+oscilation_delta = 1.0
+oscilation_timer_start_delay = 0.0
+
+[node name="7" parent="lasers" instance=ExtResource("4_cfrjm")]
+position = Vector2(1952, 1344)
+rotation = -1.5708
+beam_length = 940
+oscilation_delta = 1.0
+oscilation_timer_start_delay = 0.5
+
+[node name="red_floors" type="Node2D" parent="."]
+
+[node name="1" type="Area2D" parent="red_floors"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="red_floors/1"]
+position = Vector2(448, 1403)
+shape = SubResource("RectangleShape2D_5i5mb")
+
+[node name="2" type="Area2D" parent="red_floors"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="red_floors/2"]
+position = Vector2(960, 1403)
+shape = SubResource("RectangleShape2D_5i5mb")
+
+[node name="3" type="Area2D" parent="red_floors"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="red_floors/3"]
+position = Vector2(1344, 1403)
+shape = SubResource("RectangleShape2D_5i5mb")
+
+[node name="checkpoints" type="Node2D" parent="."]
+
+[node name="0" type="Marker2D" parent="checkpoints"]
+position = Vector2(80, 1368)
+
+[node name="1" type="Marker2D" parent="checkpoints"]
+position = Vector2(1056, 1408)
+
+[node name="0" type="Marker2D" parent="checkpoints/1"]
+position = Vector2(32, -40)
+
+[node name="2" type="Marker2D" parent="checkpoints"]
+position = Vector2(1920, 1024)
+
+[node name="0" type="Marker2D" parent="checkpoints/2"]
+position = Vector2(64, -40)
+
+[node name="GoalArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GoalArea"]
+position = Vector2(2816, 1403)
+shape = SubResource("RectangleShape2D_uhdk1")
+
+[connection signal="body_entered" from="GoalArea" to="." method="_on_player_entered_goal_area"]

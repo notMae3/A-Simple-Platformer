@@ -1,0 +1,28 @@
+# update the checkpoint system? use a collision shape to detect passage, then use a marker for spawn point?
+	decided to add support for 2 Marker2D nodes, one for min_x value and one for spawn_pos
+# setup 'main menu -> game' structure
+# make red floor tiles? (would be similar to goal-tiles)
+# move level nodes to their own scenes?
+# do options menu
+# design levels (10? 5?) (just copy paste lvl1 and edit it) (did 4)
+# is player hitbox area needed? yes
+# add support for 'last level' (count files in res://levels, if current_scene idx+1 == file count: show "Thanks for playing" screen w credits and button to go to start menu)
+# add speedrun mode w timer on top of screen (enable/disable in options, have label that tells user about it at MM)
+# add death count (togglable in options menu)
+# add credit on credits screen?
+# limit player movement to edge of screen
+# add 'disable checkpoints' option
+# change 'speedrun mode' option name to 'track time'
+# add some kind of sign at main menu to tell the player they should check out the options
+	maybe have the options button bobbing up and down?
+	or maybe have it vibrate every 2 sec (rotate it back and forth)
+X update the checkpoint system to force the player to be above the Marker2Ds y pos (player.y < marker.y)
+# on main menu add keybind 1: start game, 2: options, 3: quit game
+X add quit game confirmation dialog
+X on respawn "unhold" movement keys to prevent accidental deaths
+	difficult
+
+
+# remember to update the available_levels variable in game.gd
+# when finishing up remember to go through laser.gd and move all update shit to _ready (currently its optimized for lvl design)
+

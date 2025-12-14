@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://3o3p66se7nqe"]
+
+[ext_resource type="Script" path="res://Main.gd" id="1_jast4"]
+[ext_resource type="PackedScene" uid="uid://bupxmcja155cf" path="res://MainMenu.tscn" id="1_t62mp"]
+
+[node name="main" type="Node"]
+script = ExtResource("1_jast4")
+
+[node name="Camera2D" type="Camera2D" parent="." groups=["permanent"]]
+anchor_mode = 0
+zoom = Vector2(0.4, 0.4)
+
+[node name="MainMenu" parent="." instance=ExtResource("1_t62mp")]

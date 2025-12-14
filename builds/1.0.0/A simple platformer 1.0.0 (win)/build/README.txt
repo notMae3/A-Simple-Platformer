@@ -1,0 +1,1 @@
+If the Microsoft Defender SmartScreen appears when running the game then please press the "More info" button and "Run anyway".

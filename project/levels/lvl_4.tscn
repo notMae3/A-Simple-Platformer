@@ -1,0 +1,228 @@
+[gd_scene load_steps=14 format=3 uid="uid://cbncupo03yycd"]
+
+[ext_resource type="TileSet" uid="uid://bywce54qywn13" path="res://levels/tileset.tres" id="1_grqt6"]
+[ext_resource type="Script" path="res://levels/LevelHandler.gd" id="2_pkg7l"]
+[ext_resource type="PackedScene" uid="uid://c4jvyb00h57n3" path="res://Spike.tscn" id="3_3msg3"]
+[ext_resource type="PackedScene" uid="uid://bl64v2a4auj10" path="res://Hammer.tscn" id="3_urj4x"]
+[ext_resource type="PackedScene" uid="uid://hrx8j0mt4mdy" path="res://Laser.tscn" id="4_wsjoj"]
+[ext_resource type="PackedScene" uid="uid://soxvxufuy3ty" path="res://BouncePad.tscn" id="6_578nu"]
+[ext_resource type="PackedScene" uid="uid://bwgn2uhkub73k" path="res://Teleporter.tscn" id="7_wmj78"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_401p8"]
+size = Vector2(504, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_olg11"]
+size = Vector2(236, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d2e2k"]
+size = Vector2(128, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fkx8y"]
+size = Vector2(128, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kwen7"]
+size = Vector2(133, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uhdk1"]
+size = Vector2(256, 10)
+
+[node name="lvl4" type="TileMap"]
+tile_set = ExtResource("1_grqt6")
+format = 2
+layer_0/tile_data = PackedInt32Array(720896, 0, 0, 720897, 0, 0, 720898, 0, 0, 720900, 0, 0, 720904, 1, 0, 720907, 0, 0, 720908, 0, 0, 720909, 0, 0, 720910, 0, 0, 720911, 0, 0, 720912, 0, 0, 720913, 0, 0, 720914, 0, 0, 720915, 0, 0, 720916, 0, 0, 720917, 2, 0, 720918, 2, 0, 720901, 0, 0, 720902, 1, 0, 720905, 1, 0, 720899, 0, 0, 720903, 1, 0, 720906, 0, 0, 655370, 0, 0, 589834, 0, 0, 524295, 0, 0, 458759, 0, 0, 393223, 0, 0, 458765, 0, 0, 524301, 0, 0, 589837, 0, 0, 655373, 0, 0, 458766, 0, 0, 458767, 0, 0, 65548, 0, 0, 13, 0, 0, 14, 0, 0, 262158, 7, 1610612736, 15, 0, 0, 262159, 5, 805306368, 16, 0, 0, 196624, 0, 0, 17, 0, 0, 196625, 0, 0, 65549, 0, 0, 327695, 1, 1610612736, 393231, 1, 1610612736, 262160, 0, 0, 18, 0, 0, 65554, 0, 0, 131090, 1, 1610612736, 196626, 0, 0)
+script = ExtResource("2_pkg7l")
+
+[node name="spikes" type="Node2D" parent="."]
+
+[node name="1" parent="spikes" instance=ExtResource("3_3msg3")]
+position = Vector2(1984, 448)
+rotation = -1.5708
+
+[node name="2" parent="spikes" instance=ExtResource("3_3msg3")]
+position = Vector2(1472, 1344)
+
+[node name="3" parent="spikes" instance=ExtResource("3_3msg3")]
+position = Vector2(1600, 1344)
+
+[node name="4" parent="spikes" instance=ExtResource("3_3msg3")]
+position = Vector2(1728, 320)
+rotation = -3.14159
+
+[node name="6" parent="spikes" instance=ExtResource("3_3msg3")]
+position = Vector2(1856, 192)
+rotation = 1.5708
+
+[node name="7" parent="spikes" instance=ExtResource("3_3msg3")]
+position = Vector2(2112, 192)
+rotation = 3.14159
+
+[node name="8" parent="spikes" instance=ExtResource("3_3msg3")]
+position = Vector2(2240, 192)
+rotation = 3.14159
+
+[node name="lasers" type="Node2D" parent="."]
+
+[node name="1" parent="lasers" instance=ExtResource("4_wsjoj")]
+position = Vector2(864, 1088)
+rotation = 1.5708
+beam_length = 900
+oscilation_delta = 0.345
+oscilation_timer_start_delay = 0.16
+
+[node name="3" parent="lasers" instance=ExtResource("4_wsjoj")]
+position = Vector2(1248, 1216)
+rotation = 1.5708
+beam_length = 1300
+oscilation_delta = 0.345
+oscilation_timer_start_delay = 0.16
+
+[node name="4" parent="lasers" instance=ExtResource("4_wsjoj")]
+position = Vector2(1600, 288)
+beam_length = 647
+oscilation_delta = 0.5
+oscilation_timer_start_delay = 0.0
+
+[node name="hammers" type="Node2D" parent="."]
+
+[node name="1" parent="hammers" instance=ExtResource("3_urj4x")]
+position = Vector2(400, 1000)
+segments = {
+"1": {
+"clockwise_rotation": false,
+"rotation_speed": 1.45,
+"shaft_length": 450,
+"starting_rotation": 0.0
+}
+}
+
+[node name="2" parent="hammers" instance=ExtResource("3_urj4x")]
+position = Vector2(1270, 701)
+segments = {
+"1": {
+"clockwise_rotation": true,
+"rotation_speed": 1.2,
+"shaft_length": 405,
+"starting_rotation": 0.0
+}
+}
+
+[node name="3" parent="hammers" instance=ExtResource("3_urj4x")]
+position = Vector2(2374, 1037)
+segments = {
+"1": {
+"clockwise_rotation": true,
+"rotation_speed": 1.0,
+"shaft_length": 160,
+"starting_rotation": 0.0
+},
+"2": {
+"clockwise_rotation": true,
+"rotation_speed": 0.75,
+"shaft_length": 130,
+"starting_rotation": 0.0
+},
+"3": {
+"clockwise_rotation": true,
+"rotation_speed": 0.5,
+"shaft_length": 265,
+"starting_rotation": 0.0
+},
+"4": {
+"clockwise_rotation": true,
+"rotation_speed": 0.5,
+"shaft_length": 250,
+"starting_rotation": 0.0
+}
+}
+
+[node name="red_floors" type="Node2D" parent="."]
+
+[node name="1" type="Area2D" parent="red_floors"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="red_floors/1"]
+position = Vector2(1024, 1406)
+shape = SubResource("RectangleShape2D_401p8")
+
+[node name="2" type="Area2D" parent="red_floors"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="red_floors/2"]
+position = Vector2(1918, 768)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_olg11")
+
+[node name="3" type="Area2D" parent="red_floors"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="red_floors/3"]
+position = Vector2(1856, 511.5)
+shape = SubResource("RectangleShape2D_d2e2k")
+
+[node name="4" type="Area2D" parent="red_floors"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="red_floors/4"]
+position = Vector2(1856, 642)
+shape = SubResource("RectangleShape2D_fkx8y")
+
+[node name="5" type="Area2D" parent="red_floors"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="red_floors/5"]
+position = Vector2(1791.5, 577.5)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_kwen7")
+
+[node name="6" type="Area2D" parent="red_floors"]
+position = Vector2(373, -193)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="red_floors/6"]
+position = Vector2(1929, 513)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_fkx8y")
+
+[node name="bouce_pads" type="Node2D" parent="."]
+
+[node name="1" parent="bouce_pads" instance=ExtResource("6_578nu")]
+position = Vector2(704, 1344)
+
+[node name="2" parent="bouce_pads" instance=ExtResource("6_578nu")]
+position = Vector2(1856, 832)
+
+[node name="teleporters" type="Node2D" parent="."]
+
+[node name="1" parent="teleporters" instance=ExtResource("7_wmj78")]
+position = Vector2(2240, 320)
+
+[node name="2" parent="teleporters" instance=ExtResource("7_wmj78")]
+position = Vector2(1856, 1344)
+input = false
+
+[node name="checkpoints" type="Node2D" parent="."]
+
+[node name="0" type="Marker2D" parent="checkpoints"]
+position = Vector2(80, 1368)
+
+[node name="1" type="Marker2D" parent="checkpoints"]
+position = Vector2(1664, 896)
+
+[node name="0" type="Marker2D" parent="checkpoints/1"]
+position = Vector2(64, -40)
+
+[node name="GoalArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GoalArea"]
+position = Vector2(2816, 1403)
+shape = SubResource("RectangleShape2D_uhdk1")
+
+[connection signal="body_entered" from="GoalArea" to="." method="_on_player_entered_goal_area"]

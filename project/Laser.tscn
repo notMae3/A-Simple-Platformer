@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://hrx8j0mt4mdy"]
+
+[ext_resource type="Script" path="res://Laser.gd" id="1_fqp6c"]
+[ext_resource type="Texture2D" uid="uid://c46vubtl7p3ll" path="res://assets/laser_base.png" id="2_v0u8c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_00vck"]
+size = Vector2(8, 1)
+
+[node name="laser" type="Node2D"]
+script = ExtResource("1_fqp6c")
+
+[node name="base" type="Sprite2D" parent="."]
+rotation = 3.14159
+texture = ExtResource("2_v0u8c")
+
+[node name="beam" type="Line2D" parent="."]
+z_index = -1
+position = Vector2(0, 2)
+points = PackedVector2Array(0, 0)
+default_color = Color(0.745098, 0, 0, 1)
+end_cap_mode = 1
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(0, 2)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_00vck")
+
+[node name="OscilationTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="OscilationTimer" to="." method="_on_oscilation_timer_timeout"]

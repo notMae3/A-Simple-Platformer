@@ -1,0 +1,101 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7k584bqaxf31"]
+
+[ext_resource type="Script" path="res://OptionsScreen.gd" id="1_8u6oj"]
+[ext_resource type="PackedScene" uid="uid://ckwremtw0hoa0" path="res://OptionMenuItem.tscn" id="2_610wn"]
+
+[node name="OptionsScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.5, 2.5)
+script = ExtResource("1_8u6oj")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.690196, 0.690196, 0.690196, 1)
+
+[node name="OptionsLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -280.0
+offset_right = 280.0
+offset_bottom = 176.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 61
+text = "Options"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MainMenuButton" type="Button" parent="."]
+layout_mode = 1
+offset_right = 230.0
+offset_bottom = 117.0
+focus_mode = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 46
+text = "←Back"
+flat = true
+
+[node name="OptionMenuItem" parent="." instance=ExtResource("2_610wn")]
+custom_minimum_size = Vector2(400, 40)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 376.0
+offset_top = 204.0
+offset_right = 776.0
+offset_bottom = 244.0
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(1.6, 1.6)
+pivot_offset = Vector2(200, 20)
+text = "Count deaths"
+var_name = "death_counter_active"
+
+[node name="OptionMenuItem2" parent="." instance=ExtResource("2_610wn")]
+custom_minimum_size = Vector2(400, 40)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 376.0
+offset_top = 304.0
+offset_right = 776.0
+offset_bottom = 344.0
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(1.6, 1.6)
+pivot_offset = Vector2(200, 20)
+text = "Track time"
+var_name = "track_time"
+
+[node name="OptionMenuItem3" parent="." instance=ExtResource("2_610wn")]
+custom_minimum_size = Vector2(400, 40)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 376.0
+offset_top = 404.0
+offset_right = 776.0
+offset_bottom = 444.0
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(1.6, 1.6)
+pivot_offset = Vector2(200, 20)
+text = "Disable checkpoints"
+var_name = "disable_checkpoints"
+
+[connection signal="pressed" from="MainMenuButton" to="." method="_on_main_menu_button_pressed"]
